@@ -1,1 +1,54 @@
-<h3>List of files</h3>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Filestorage">
+      </a>
+    </div>
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</nav>
+
+<div class='container'>
+  <button class='btn btn-success'>
+    + Add new file
+  </button>
+</div>
+
+<div class='container'>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class='col-xs-8'>File name</th>
+        <th>Tags</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>This is first file</th>
+        <th>
+          <span class="label label-success">Images</span>
+          <span class="label label-success">Photo</span>
+        </th>
+        <th>
+          Destroy / Edit
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<footer class='footer'>
+  <div class='container'>
+    <p class='text-muted'>
+      2015
+    </p>
+  </div>
+</footer>
