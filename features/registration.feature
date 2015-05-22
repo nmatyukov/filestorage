@@ -17,3 +17,4 @@ Feature: Register new user
     When we fill registration form with registered user email
     And click to "Register" button
     Then we should see error message
+
