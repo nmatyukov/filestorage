@@ -2,7 +2,7 @@
 
 class FileUploader < CarrierWave::Uploader::Base
 
-  FILE_ROOT_PATH_CONFIG = YAML.load(File.read(File.join(Rails.root, 'config', 'files_upload.yml')))
+  FILE_ROOT_PATH_CONFIG = YAML.load(File.read(File.join(Rails.root, 'config', 'file_upload.yml')))
 
   storage :file
 
