@@ -13,5 +13,6 @@
  *= require bootstrap/main
  *= require login/form
  *= require nav/footer
+ *= require jquery.plupload.queue
  *= require_self
  */
