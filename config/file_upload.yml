@@ -1,8 +1,8 @@
 development:
-  image_root: 'images'
+  image_root: 'files'
 
 test:
-  image_root: 'images'
+  image_root: 'files'
 
 production:
-  image_root: 'images'
+  image_root: 'files'
