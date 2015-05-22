@@ -55,6 +55,10 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'factory_girl', :git => 'git://github.com/thoughtbot/factory_girl.git'
+  gem 'factory_girl_rails'
 end
 
 gem 'bootstrap-sass', '~> 3.3.4'
