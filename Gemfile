@@ -55,6 +55,8 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
 end
 
 gem 'bootstrap-sass', '~> 3.3.4'
