@@ -1,0 +1,8 @@
+development:
+  image_root: 'images'
+
+test:
+  image_root: 'images'
+
+production:
+  image_root: 'images'
