@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/thoughtbot/factory_girl.git
+  revision: 03786660edbe4e028a292d19f7956f8dd0c89347
+  specs:
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -97,6 +104,9 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.5.2)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     ffi (1.9.8)
     formatador (0.2.5)
     gherkin (2.12.2)
@@ -283,6 +293,8 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  factory_girl!
+  factory_girl_rails
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
