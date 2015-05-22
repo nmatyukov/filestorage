@@ -12,5 +12,6 @@
  *
  *= require bootstrap/main
  *= require login/form
+ *= require nav/footer
  *= require_self
  */
