@@ -3,11 +3,19 @@ class DocumentsController < ApplicationController
   def index
   end
 
+  # {"files"=>[#<ActionDispatch::Http::UploadedFile:0xb37f5c34 @tempfile=#<Tempfile:/tmp/RackMultipart20150525-7106-cnz20x.jpg>, @original_filename="0193MR1024018000E1_DXXX.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"0193MR1024018000E1_DXXX.jpg\"\r\nContent-Type: image/jpeg\r\n">]}
   def create
-    @document = Document.new(name: params[:name])
-    @document.path = params[:file]
-    @document.save!
-    render :nothing => true
+    @document = Document.new(document_params)
+    if @document.save
+      render nothing: true
+    else
+      render json: [{error: "custom_failure"}], status: 304
+    end
   end
 
+  private
+
+    def document_params
+      params.permit({files: []})
+    end
 end

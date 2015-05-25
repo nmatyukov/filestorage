@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(version: 20150522124252) do
 
   create_table "documents", force: :cascade do |t|
-    t.string  "name"
-    t.string  "path"
+    t.string  "title"
+    t.string  "files"
     t.integer "user_id"
   end
 
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150522124252) do
   add_index "references", ["tag_id"], name: "index_references_on_tag_id", unique: true
 
   create_table "tags", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|

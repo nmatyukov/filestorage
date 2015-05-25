@@ -18,3 +18,5 @@
 
 # Ignore uploads
 /public/uploads/tmp
+/public/test_files
+/public/dev_files

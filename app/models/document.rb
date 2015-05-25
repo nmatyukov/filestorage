@@ -4,5 +4,5 @@ class Document < ActiveRecord::Base
   has_many :references
   has_many :tags, through: :references
 
-  mount_uploader :path, FileUploader
+  mount_uploader :files, FileUploader
 end
