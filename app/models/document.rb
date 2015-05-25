@@ -10,6 +10,13 @@ class Document < ActiveRecord::Base
     if params[:files].kind_of?(Array)
       params[:files] = params[:files].first
     end
-    self.new( params )
+    if params[:tags].empty?
+      params[:tags] = []
+    else
+      params[:tags] = params[:tags].split(',').map do |tag|
+        Tag.where(name: tag.strip).first_or_create
+      end
+    end
+    document = self.new( params )
   end
 end

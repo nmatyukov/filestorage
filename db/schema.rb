@@ -19,15 +19,10 @@ ActiveRecord::Schema.define(version: 20150522124252) do
     t.integer "user_id"
   end
 
-  add_index "documents", ["user_id"], name: "index_documents_on_user_id", unique: true
-
   create_table "references", force: :cascade do |t|
     t.integer "document_id"
     t.integer "tag_id"
   end
-
-  add_index "references", ["document_id"], name: "index_references_on_document_id", unique: true
-  add_index "references", ["tag_id"], name: "index_references_on_tag_id", unique: true
 
   create_table "tags", force: :cascade do |t|
     t.string "name"

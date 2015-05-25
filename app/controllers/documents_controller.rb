@@ -16,6 +16,6 @@ class DocumentsController < ApplicationController
   private
 
     def document_params
-      params.permit({files: []})
+      params.permit(:title, :tags, {files: []})
     end
 end
