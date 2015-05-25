@@ -58,12 +58,26 @@
                 </a>
               </span>
               <span data-ng-switch-default>
-                {{file.name}}
+                <div data-ng-controller="RenameController">
+                  <div ng-hide="editorEnabled">
+                    {{file.title}}
+                    <a href="#" ng-click="enableEditor()">Edit title</a>
+                  </div>
+                  <div ng-show="editorEnabled">
+                    <input ng-model="editableTitle" ng-show="editorEnabled">
+                    <a href="#" ng-click="save()">Save</a>
+                    or
+                    <a href="#" ng-click="disableEditor()">cancel</a>.
+                  </div>
+                </div>
               </span>
             </p>
-            <strong data-ng-show="file.error" class="error text-danger">
-              {{file.error}}
-            </strong>
+            <p>
+              <input type="text" name="tags" ng-model="file.tags" placeholder="Comma-separated tags">
+              <span ng-if="!isUndefined(file.error)" ng-model="file.error" class="error text-danger">
+                {{file.error}}
+              </span>
+            </p>
           </td>
           <td>
             <p class="size">{{file.size | formatFileSize}}</p>

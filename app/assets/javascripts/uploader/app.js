@@ -81,6 +81,29 @@
                     };
                 }
             }
+        ])
+
+        .controller('RenameController', [
+            '$scope', '$http',
+            function ($scope, $http) {
+              var file = $scope.file;
+              $scope.editorEnabled = false;
+
+              $scope.enableEditor = function() {
+                $scope.editorEnabled = true;
+                $scope.editableTitle = $scope.file.title;
+              };
+
+              $scope.disableEditor = function() {
+                $scope.editorEnabled = false;
+              };
+
+              $scope.save = function() {
+                $scope.file.title = $scope.editableTitle;
+                $scope.disableEditor();
+              };
+
+            }
         ]);
 
 }());

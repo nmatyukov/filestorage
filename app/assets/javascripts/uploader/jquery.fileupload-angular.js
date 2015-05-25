@@ -294,9 +294,15 @@
                             data.result = angular.fromJson(data.jqXHR.responseText);
                         } catch (ignore) {}
                     }
+                }).on('fileuploadadd', function(e, data) {
+                    data.files[0].title = data.files[0].name;
+                    data.files[0].tags  = "";
+                }).on('fileuploadsubmit', function(e, data) {
+                    data.formData = {
+                      title: data.files[0].title,
+                      tags: data.files[0].tags
+                    };
                 }).on([
-                    'fileuploadadd',
-                    'fileuploadsubmit',
                     'fileuploadsend',
                     'fileuploaddone',
                     'fileuploadfail',
