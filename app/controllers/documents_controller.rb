@@ -1,15 +1,39 @@
 class DocumentsController < ApplicationController
 
   def index
+    @documents = Document.all
   end
 
-  # {"files"=>[#<ActionDispatch::Http::UploadedFile:0xb37f5c34 @tempfile=#<Tempfile:/tmp/RackMultipart20150525-7106-cnz20x.jpg>, @original_filename="0193MR1024018000E1_DXXX.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"files[]\"; filename=\"0193MR1024018000E1_DXXX.jpg\"\r\nContent-Type: image/jpeg\r\n">]}
   def create
     @document = Document.store_files(document_params)
     if @document.save
       render nothing: true
     else
       render json: [{error: "custom_failure"}], status: 304
+    end
+  end
+
+  def destroy
+    @document = Document.find(params.permit(:id)[:id])
+    @document.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path }
+    end
+  end
+
+  def download_file
+    @document = Document.find(params.permit(:id)[:id])
+    send_file(@document.files.path,
+              disposition: 'attachment',
+              url_based_filename: false)
+  end
+
+  def tag_filter
+    @documents = Tag.where(id: params.permit(:id)[:id]).first.documents
+    respond_to do |format|
+      format.html { 
+        render template: "documents/index"
+      }
     end
   end
 

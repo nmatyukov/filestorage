@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   resources :documents
 
+  get 'download/:id' => 'documents#download_file'
+  get 'tags/:id'     => 'documents#tag_filter', as: :tags
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
