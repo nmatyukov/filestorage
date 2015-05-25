@@ -27,3 +27,7 @@
 ng\:form {
   display: block;
 }
+
+.label {
+  padding: 0.1em 0.6em 0.1em;
+}
