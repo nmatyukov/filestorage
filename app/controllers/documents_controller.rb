@@ -1,11 +1,6 @@
 class DocumentsController < ApplicationController
 
   def index
-    @document = Document.new
-  end
-
-  def new
-    @document = Document.new
   end
 
   def create
