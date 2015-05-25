@@ -39,6 +39,17 @@ RSpec.describe DocumentsController, type: :controller do
       expect(response).to be_success
     end
 
+    it "fail if title is empty" do
+      post :create, {
+        title: "",
+        tags: "vk, fb",
+        files: [
+          fixture_file_upload('/files/0193MR1024018000E1_DXXX.jpg', 'image/jpg')
+        ]
+      }
+      expect(response).to have_http_status(:error)
+    end
+
   end
 
 end
