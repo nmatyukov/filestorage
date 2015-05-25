@@ -1,7 +1,9 @@
 class DocumentsController < ApplicationController
 
   def index
-    @documents = Document.all
+    @documents = Document.paginate(
+      page: params.permit(:page)[:page]
+    )
   end
 
   def create
@@ -14,7 +16,7 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    @document = Document.find(params.permit(:id)[:id])
+    @document = Document.where(id: params.permit(:id)[:id]).first
     @document.destroy
     respond_to do |format|
       format.html { redirect_to root_path }
@@ -22,14 +24,19 @@ class DocumentsController < ApplicationController
   end
 
   def download_file
-    @document = Document.find(params.permit(:id)[:id])
+    @document = Document.where(id: params.permit(:id)[:id]).first
     send_file(@document.files.path,
               disposition: 'attachment',
               url_based_filename: false)
   end
 
   def tag_filter
-    @documents = Tag.where(id: params.permit(:id)[:id]).first.documents
+    @documents = Tag.where(id: params.permit(:id)[:id])
+                    .first
+                    .documents
+    @documents = @documents.paginate(
+      page: params.permit(:page)[:page]
+    )
     respond_to do |format|
       format.html { 
         render template: "documents/index"

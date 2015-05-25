@@ -71,3 +71,4 @@ gem 'carrierwave'
 gem 'simple_form'
 
 gem 'angular-rails-templates'
+gem 'will_paginate', '~> 3.0.6'

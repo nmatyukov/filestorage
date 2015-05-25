@@ -6,6 +6,8 @@ class Document < ActiveRecord::Base
 
   mount_uploader :files, FileUploader
 
+  self.per_page = 10
+
   def self.store_files(params)
     if params[:files].kind_of?(Array)
       params[:files] = params[:files].first

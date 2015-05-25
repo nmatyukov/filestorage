@@ -2,8 +2,8 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th class='col-xs-7'>File name</th>
-        <th>Tags</th>
+        <th class='col-xs-6'>File name</th>
+        <th class='col-xs-3'>Tags</th>
         <th>Delete File</th>
         <th>Download File</th>
       </tr>
@@ -27,4 +27,5 @@
       <% end %>
     </tbody>
   </table>
+  <%= will_paginate @documents %>
 </div>
