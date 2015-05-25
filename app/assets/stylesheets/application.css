@@ -13,6 +13,17 @@
  *= require bootstrap/main
  *= require login/form
  *= require nav/footer
- *= require jquery.plupload.queue
+ *= require blueimp/jquery.fileupload
+ *= require blueimp/jquery.fileupload-ui
  *= require_self
  */
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}

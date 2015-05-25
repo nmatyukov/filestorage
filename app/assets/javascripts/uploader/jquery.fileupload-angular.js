@@ -19,9 +19,9 @@
         define([
             'jquery',
             'angular',
-            './jquery.fileupload-image',
-            './jquery.fileupload-audio',
-            './jquery.fileupload-video',
+            // './jquery.fileupload-image',
+            // './jquery.fileupload-audio',
+            // './jquery.fileupload-video',
             './jquery.fileupload-validate'
         ], factory);
     } else {

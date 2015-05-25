@@ -11,10 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/core
+//= require jquery-ui/widget
 //= require jquery_ujs
 //= require turbolinks
-//= require moxie
-//= require plupload.dev
-//= require plupload.settings
-//= require jquery.plupload.queue
+//= require angular/angular
+//= require blueimp/jquery.iframe-transport
+//= require blueimp/jquery.fileupload
+//= require blueimp/jquery.fileupload-process
+//= require blueimp/jquery.fileupload-validate
+//= require uploader/jquery.fileupload-angular
+//= require uploader/app
 //= require_tree .
