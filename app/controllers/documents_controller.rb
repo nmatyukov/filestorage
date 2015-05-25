@@ -11,7 +11,9 @@ class DocumentsController < ApplicationController
     if @document.save
       render nothing: true
     else
-      render json: [{error: "custom_failure"}], status: 304
+      render json: [
+        {errors: "File not saved due to #{@document.errors.full_messages.first}"}
+      ], status: 500
     end
   end
 

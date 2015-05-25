@@ -17,7 +17,6 @@
  *= require blueimp/jquery.fileupload-ui
  *= require_self
  */
-
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
 .ng-cloak, .x-ng-cloak,
 .ng-hide:not(.ng-hide-animate) {
@@ -26,6 +25,16 @@
 
 ng\:form {
   display: block;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
 
 .label {

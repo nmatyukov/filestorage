@@ -1,8 +1,10 @@
 class Document < ActiveRecord::Base
 
   belongs_to :user
-  has_many :references
-  has_many :tags, through: :references
+  has_many   :references
+  has_many   :tags, through: :references
+
+  validates :title, presence: true, allow_blank: false
 
   mount_uploader :files, FileUploader
 

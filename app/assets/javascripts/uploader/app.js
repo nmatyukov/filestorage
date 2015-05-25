@@ -84,8 +84,8 @@
         ])
 
         .controller('RenameController', [
-            '$scope', '$http',
-            function ($scope, $http) {
+            '$scope',
+            function ($scope) {
               var file = $scope.file;
               $scope.editorEnabled = false;
 
