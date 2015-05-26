@@ -1,13 +1,16 @@
 Given(/^the home page$/) do
-  visit '/'
+  # visit '/'
+  pending # express the regexp above with the code you wish you had
 end
 
 When(/^we click to "(.*?)" button$/) do |button|
-  click_button(button)
+  # click_button(button)
+  pending # express the regexp above with the code you wish you had
 end
 
 Then(/^we should see registration form$/) do
-  expect(page).to have_content('Register')
+  # expect(page).to have_content('Register')
+  pending # express the regexp above with the code you wish you had
 end
 
 Given(/^the registration page$/) do
