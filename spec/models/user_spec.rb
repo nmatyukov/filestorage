@@ -10,5 +10,20 @@ RSpec.describe User, type: :model do
   it "should be valid" do
     user = FactoryGirl.create(:user)
     expect(user).to be_valid
-  end 
+  end
+
+  it "should use email" do
+    user = FactoryGirl.build(:no_email_user)
+    expect(user).not_to be_valid
+  end
+
+  it "email should not be empty" do
+    user = FactoryGirl.build(:empty_email)
+    expect(user).not_to be_valid
+  end
+
+  it "password should not be empty" do
+    user = FactoryGirl.build(:empty_password)
+    expect(user).not_to be_valid
+  end
 end

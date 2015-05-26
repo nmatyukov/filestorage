@@ -7,5 +7,10 @@ FactoryGirl.define do
       sequence(:title){ |i| "name_#{i}" }
       files { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'files', 'test.pdf')) }
     end
+
+    factory :document_in_array do
+      sequence(:title){ |i| "name_#{i}" }
+      files { [Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'files', 'test.pdf'))] }
+    end
   end
 end

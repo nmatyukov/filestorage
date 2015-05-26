@@ -43,12 +43,13 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
-  #gem "spring-commands-cucumber"
+  gem "spring-commands-cucumber"
 
   # RSpec testing framework
   gem 'rspec-rails'
 
   gem 'guard-rspec'
+  gem 'guard-cucumber'
 end
 
 group :test do
@@ -72,3 +73,4 @@ gem 'simple_form'
 
 gem 'angular-rails-templates'
 gem 'will_paginate', '~> 3.0.6'
+gem 'email_validator'

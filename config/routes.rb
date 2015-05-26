@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :documents
+  resources :documents, only: [:index, :create, :destroy]
 
   get 'download/:id' => 'documents#download_file'
   get 'tags/:id'     => 'documents#tag_filter', as: :tags

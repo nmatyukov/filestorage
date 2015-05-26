@@ -13,4 +13,22 @@ RSpec.describe Document, type: :model do
     file = FactoryGirl.create(:document)
     expect(file).to be_valid
   end
+
+  it "should not valid if empty title" do
+    params = { title: "" }
+    file = Document.create(params)
+    expect(file).not_to be_valid
+  end
+
+  it "should process file in array" do
+    params = {
+        title: "hello.jpg",
+        files: [
+          Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'files', 'test.pdf'))
+        ]
+      }
+    params = Document.prepare_files(params)
+    file = Document.create(params)
+    expect(file).to be_valid
+  end
 end

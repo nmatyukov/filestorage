@@ -7,8 +7,7 @@ class FileUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-    # site_id = self.model.user_id
-    site_id = 1
+    site_id = self.model.user_id
     site_id_str = sprintf('%09d', site_id)
     site_sub_dirs = site_id_str.scan(/.{3}/)
     sprintf('%s/%s/%s/%s',
