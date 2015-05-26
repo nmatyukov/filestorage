@@ -17,6 +17,12 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
   end
 
+  it "should not create the same" do
+    FactoryGirl.create(:sample_user)
+    user = FactoryGirl.build(:sample_user)
+    expect(user).not_to be_valid
+  end
+
   it "email should not be empty" do
     user = FactoryGirl.build(:empty_email)
     expect(user).not_to be_valid

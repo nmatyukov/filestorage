@@ -15,9 +15,5 @@ class CreateFilesTable < ActiveRecord::Migration
       t.belongs_to :document
       t.belongs_to :tag
     end
-
-    # add_index :documents,  :user_id,     unique: true
-    # add_index :references, :document_id, unique: true
-    # add_index :references, :tag_id,      unique: true
   end
 end
