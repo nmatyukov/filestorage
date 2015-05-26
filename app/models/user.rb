@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   validates :email,    email: true
   validates :email,    presence: true, allow_blank: false
   validates :password, presence: true, allow_blank: false
+  validates_uniqueness_of :email
 end
