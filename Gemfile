@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -41,5 +42,35 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
+  gem "spring-commands-cucumber"
+
+  # RSpec testing framework
+  gem 'rspec-rails'
+
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
 end
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'factory_girl', :git => 'git://github.com/thoughtbot/factory_girl.git'
+  gem 'factory_girl_rails'
+end
+
+gem 'bootstrap-sass', '~> 3.3.4'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+gem 'devise'
+gem 'plupload-rails'
+gem 'carrierwave'
+gem 'simple_form'
+
+gem 'angular-rails-templates'
+gem 'will_paginate', '~> 3.0.6'
+gem 'email_validator'

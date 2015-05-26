@@ -1,0 +1,8 @@
+development:
+  files_root: 'dev_files'
+
+test:
+  files_root: 'test_files'
+
+production:
+  files_root: 'files'
