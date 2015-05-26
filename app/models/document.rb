@@ -9,6 +9,7 @@ class Document < ActiveRecord::Base
   has_many   :tags, through: :references
 
   validates :title, presence: true, allow_blank: false
+  accepts_nested_attributes_for :tags
 
   mount_uploader :files, FileUploader
 
@@ -23,4 +24,19 @@ class Document < ActiveRecord::Base
     end
     params
   end
+
+  # Convert String of tags to Array
+  #
+  # @param [Hash] params from request
+  def self.prepare_tags(params)
+    if params[:tags].empty?
+      params[:tags] = []
+    else
+      params[:tags] = params[:tags].split(',').map do |tag|
+        self.tags << Tag.where(name: tag.strip).first_or_create
+      end
+    end
+    params
+  end
+
 end

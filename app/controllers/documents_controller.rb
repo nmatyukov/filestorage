@@ -7,9 +7,14 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new(document_params)
+    params = document_params
+    @document = Document.new(
+      title: params[:title],
+      files: params[:files]
+    )
+    @document.prepare_tags(params)
+    current_user.documents << @document
     if @document.save
-      current_user.documents << @document
       render nothing: true
     else
       render json: [
@@ -52,7 +57,7 @@ class DocumentsController < ApplicationController
   private
 
     def document_params
-      prepare(params).permit(:title, :tags, {files: []})
+      prepare(params).permit(:title, :tags, :files)
     end
 
     def permitted_id
@@ -64,7 +69,6 @@ class DocumentsController < ApplicationController
     end
 
     def prepare(params)
-      params = Tag.prepare_tags(params)
       params = Document.prepare_files(params)
     end
 
