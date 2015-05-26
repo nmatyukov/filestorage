@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore uploads
+/public/uploads/tmp
+/public/test_files
+/public/dev_files

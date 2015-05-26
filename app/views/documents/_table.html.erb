@@ -1,0 +1,31 @@
+<div class='container'>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class='col-xs-6'>File name</th>
+        <th class='col-xs-1'>Tags</th>
+        <th>Delete File</th>
+        <th>Download File</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%- @documents.each do |document| %>
+        <tr>
+          <th><%= document.title %></th>
+          <th>
+            <%- document.tags.each do |tag| %>
+              <%= link_to tag.name, tags_path(tag), class: 'label label-success' %>
+            <% end %>
+          </th>
+          <th>
+            <%= link_to 'Delete', document_path(document), confirm: 'Are you sure?', method: :delete %>
+          </th>
+          <th>
+            <%= link_to 'Download', action: 'download_file', id: document.id %>
+          </th>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @documents %>
+</div>

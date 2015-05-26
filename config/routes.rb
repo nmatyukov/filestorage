@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  root 'documents#index'
+
+  devise_for :users
+
+  resources :documents, only: [:index, :create, :destroy]
+
+  get 'download/:id' => 'documents#download_file'
+  get 'tags/:id'     => 'documents#tag_filter', as: :tags
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
