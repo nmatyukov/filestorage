@@ -28,7 +28,7 @@ class Document < ActiveRecord::Base
   # Convert String of tags to Array
   #
   # @param [Hash] params from request
-  def self.prepare_tags(params)
+  def prepare_tags(params)
     if params[:tags].empty?
       params[:tags] = []
     else

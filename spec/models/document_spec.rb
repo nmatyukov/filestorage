@@ -10,13 +10,13 @@ RSpec.describe Document, type: :model do
   it { should have_many(:tags).through(:references) }
 
   it "should be valid" do
-    file = FactoryGirl.create(:document)
+    file = FactoryGirl.build(:document)
     expect(file).to be_valid
   end
 
   it "should not valid if empty title" do
     params = { title: "" }
-    file = Document.create(params)
+    file = Document.new(params)
     expect(file).not_to be_valid
   end
 
@@ -28,7 +28,8 @@ RSpec.describe Document, type: :model do
         ]
       }
     params = Document.prepare_files(params)
-    file = Document.create(params)
+    file = Document.new(params)
     expect(file).to be_valid
   end
+
 end
